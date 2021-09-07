@@ -14,7 +14,6 @@ name: starboard-app
 sources:
 - https://github.com/giantswarm/starboard-app
 version: [[ .Version ]]
-#version: 0.0.1
 
 dependencies:
 - name: starboard-operator
