@@ -1,6 +1,0 @@
-dependencies:
-- name: starboard-operator
-  repository: https://aquasecurity.github.io/helm-charts/
-  version: 0.6.0
-digest: sha256:605fe1ef43cb775d7b85133e7c963733ebbc34e9809701defead98b1e826ed7c
-generated: "2021-09-07T14:47:50.891801303-04:00"
