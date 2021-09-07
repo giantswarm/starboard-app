@@ -1,9 +1,9 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/{APP-NAME}-app.svg?style=shield)](https://circleci.com/gh/giantswarm/{APP-NAME}-app)
+[![CircleCI](https://circleci.com/gh/giantswarm/Starboard-app-app.svg?style=shield)](https://circleci.com/gh/giantswarm/Starboard-app)
 
-# {APP-NAME} chart
+# Starboard-app chart
 
-Giant Swarm offers a {APP-NAME} App which can be installed in workload clusters.
-Here we define the {APP-NAME} chart with its templates and default configuration.
+Giant Swarm offers a Starboard-app App which can be installed in workload clusters.
+Here we define the Starboard-app chart with its templates and default configuration.
 
 **What is this app?**
 **Why did we add it?**
