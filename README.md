@@ -61,4 +61,5 @@ Not following these limitations will most likely result in a broken deployment.
 
 ## Credit
 
-* {APP HELM REPOSITORY}
+* https://aquasecurity.github.io/helm-charts/ 
+* https://github.com/aquasecurity/starboard
