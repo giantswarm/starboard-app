@@ -13,7 +13,7 @@ maintainers:
 name: starboard-app
 sources:
 - https://github.com/giantswarm/starboard-app
-version: 0.0.1
+version: [[ .Version ]]
 
 dependencies:
 - name: starboard-operator
