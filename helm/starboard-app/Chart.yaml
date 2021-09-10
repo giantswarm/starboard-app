@@ -18,5 +18,4 @@ version: [[ .Version ]]
 dependencies:
 - name: starboard-operator
   version: "0.6.0"
-  repository: "https://aquasecurity.github.io/helm-charts/"
   alias: starboard-app
