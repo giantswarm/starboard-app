@@ -10,7 +10,7 @@ starboard-app:
   trivy:
     imageRef: quay.io/giantswarm/trivy:0.19.2
     mode: ClientServer
-    serverURL: "https://trivy-app:4954"
+    serverURL: "http://trivy-app:4954"
 
   kubeBench:
     imageRef: quay.io/giantswarm/kube-bench:0.6.3
