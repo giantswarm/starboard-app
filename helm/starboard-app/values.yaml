@@ -8,6 +8,7 @@ starboard-app:
   trivy:
     imageRef: giantswarm/trivy:0.19.2
     mode: ClientServer
+    serverURL: "test-app:4954"
 
   kubeBench:
     imageRef: giantswarm/kube-bench:0.6.3
