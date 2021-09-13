@@ -6,7 +6,7 @@ starboard-app:
     repository: "giantswarm/starboard-operator"
 
   trivy:
-    imageRef: giantswarm/trivy:0.19.2
+    imageRef: quay.io/giantswarm/trivy:0.19.2
     mode: ClientServer
     serverURL: "test-app:4954"
 
