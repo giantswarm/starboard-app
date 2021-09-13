@@ -2,6 +2,8 @@
 
 starboard-app:
 
+  targetNamespaces: ""
+
   image:
     repository: "quay.io/giantswarm/starboard-operator"
 
