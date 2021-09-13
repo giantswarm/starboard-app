@@ -1,3 +1,21 @@
 # Values can be found here https://github.com/aquasecurity/starboard/blob/v0.11.0/deploy/helm/values.yaml
 
-# starboard-app:
+starboard-app:
+
+  image:
+    repository: "giantswarm/starboard-operator"
+
+  trivy:
+    imageRef: giantswarm/trivy:0.19.2
+
+  kubeBench:
+    imageRef: giantswarm/kube-bench:0.6.3
+
+  polaris:
+    imageRef: giantswarm/polaris:4.0
+
+  conftest:
+    imageRef: giantswarm/conftest:v0.25.0
+
+  aqua:
+    imageRef: giantswarm/scanner:5.3
