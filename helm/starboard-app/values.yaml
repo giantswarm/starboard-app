@@ -3,7 +3,7 @@
 starboard-app:
 
   image:
-    repository: "giantswarm/starboard-operator"
+    repository: "quay.io/giantswarm/starboard-operator"
 
   trivy:
     imageRef: quay.io/giantswarm/trivy:0.19.2
