@@ -13,10 +13,10 @@ starboard-app:
     serverURL: "https://trivy-app:4954"
 
   kubeBench:
-    imageRef: giantswarm/kube-bench:0.6.3
+    imageRef: quay.io/giantswarm/kube-bench:0.6.3
 
   polaris:
-    imageRef: giantswarm/polaris:4.0
+    imageRef: quay.io/giantswarm/polaris:4.0
 
   conftest:
     imageRef: giantswarm/conftest:v0.25.0
