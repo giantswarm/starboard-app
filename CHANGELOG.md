@@ -9,8 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Change dependency to use subtree
-- Use giantswarm retagged images
+- Change dependency to use subtree.
+- Use giantswarm retagged images.
+- Use in-cluster Trivy by default.
 
 ## [0.1.1] - 2021-09-08
 
