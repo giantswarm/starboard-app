@@ -2,8 +2,8 @@
 
 # Starboard-app chart
 
-Giant Swarm offers a Starboard-app App which can be installed in workload clusters.
-Here we define the Starboard-app chart with its templates and default configuration.
+Giant Swarm offers a [Starboard](https://github.com/aquasecurity/starboard) app which can be installed in workload clusters.
+Here we define the starboard-app chart with its templates and default configuration.
 
 **What is this app?**
 **Why did we add it?**

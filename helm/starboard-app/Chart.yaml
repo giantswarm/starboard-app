@@ -2,11 +2,11 @@ apiVersion: v2
 appVersion: 0.0.1
 annotations:
   application.giantswarm.io/team: "ludacris"
-  config.giantswarm.io/version: "main"
-description: A Helm chart for starboard
+  config.giantswarm.io/version: 1.x.x
+description: A Helm chart for aqua starboard
 engine: gotpl
 home: https://github.com/giantswarm/starboard-app
-icon: https://s.giantswarm.io/app-icons/1/png/default-app-light.png
+icon: https://s.giantswarm.io/app-icons/starboard/1/dark.png
 maintainers:
 - name: Giant Swarm applications team
   url: https://github.com/giantswarm/starboard-app
