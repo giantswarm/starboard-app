@@ -5,6 +5,9 @@ starboard-app:
   image:
     repository: "quay.io/giantswarm/starboard-operator"
 
+  rbac:
+    pspEnabled: true
+
   targetNamespaces: ""
 
   trivy:
