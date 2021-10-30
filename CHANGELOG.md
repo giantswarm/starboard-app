@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Use in-cluster Trivy by default.
+- Scan all namespaces by default.
+- Add PodSecurityPolicy.
+- Add NetworkPolicy (for operator only).
+
 ## [0.2.1] - 2021-10-18
 
 ### Changed

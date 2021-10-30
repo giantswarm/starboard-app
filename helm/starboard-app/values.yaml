@@ -3,16 +3,27 @@
 starboard-app:
 
   image:
-    repository: "giantswarm/starboard-operator"
+    repository: "quay.io/giantswarm/starboard-operator"
+
+  rbac:
+    pspEnabled: true
+
+  targetNamespaces: ""
 
   trivy:
-    imageRef: giantswarm/trivy:0.19.2
+    # Ideally, we use the in-cluster Trivy deployed from https://github.com/giantswarm/trivy-app
+    # We also set the image here so that starboard can be deployed "standalone",
+    # but this image is not used if using in-cluster Trivy.
+    # Change or remove the `mode:` setting to let starboard pull its own Trivy images.
+    imageRef: quay.io/giantswarm/trivy:0.19.2
+    mode: ClientServer
+    serverURL: "http://trivy-app:4954"
 
   kubeBench:
-    imageRef: giantswarm/kube-bench:0.6.3
+    imageRef: quay.io/giantswarm/kube-bench:0.6.3
 
   polaris:
-    imageRef: giantswarm/polaris:4.0
+    imageRef: quay.io/giantswarm/polaris:4.0
 
   conftest:
     imageRef: giantswarm/conftest:v0.25.0
