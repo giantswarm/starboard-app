@@ -18,9 +18,9 @@ spec:
     - 'secret'
   hostNetwork: false
   hostIPC: false
-  hostPID: false
+  hostPID: true
   runAsUser:
-    rule: 'MustRunAsNonRoot'
+    rule: 'RunAsAny'
   seLinux:
     rule: 'RunAsAny'
   supplementalGroups:
