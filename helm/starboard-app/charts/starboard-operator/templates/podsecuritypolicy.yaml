@@ -1,4 +1,43 @@
 {{- if .Values.rbac.pspEnabled }}
+{{- if .Values.operator.kubernetesBenchmarkEnabled }}
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: {{ include "starboard-operator.fullname" . }}
+  labels:
+    {{- include "starboard-operator.labels" . | nindent 4 }}
+  annotations:
+    seccomp.security.alpha.kubernetes.io/allowedProfileNames: 'runtime/default'
+spec:
+  privileged: false
+  allowPrivilegeEscalation: false
+  volumes:
+    - 'configMap'
+    - 'emptyDir'
+    - 'hostPath'
+    - 'secret'
+  hostNetwork: false
+  hostIPC: false
+  hostPID: false
+  runAsUser:
+    rule: 'MustRunAsNonRoot'
+  seLinux:
+    rule: 'RunAsAny'
+  supplementalGroups:
+    rule: 'MustRunAs'
+    ranges:
+    - min: 1
+      max: 65535
+  fsGroup:
+    rule: 'MustRunAs'
+    ranges:
+    - min: 1
+      max: 65535
+  readOnlyRootFilesystem: true
+  requiredDropCapabilities:
+    - ALL
+{{ else }}
+# More minimal PSP without capabilities needed for CIS.
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
 metadata:
@@ -31,4 +70,5 @@ spec:
   readOnlyRootFilesystem: true
   requiredDropCapabilities:
     - ALL
+{{- end }}
 {{- end }}
