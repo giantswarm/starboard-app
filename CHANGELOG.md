@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Push starboard-app to AWS, Azure, and VMWare collections.
+
 ## [0.3.0] - 2021-11-02
 
 ### Changed
