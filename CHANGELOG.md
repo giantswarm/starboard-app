@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Scan all namespaces by default.
 - Add PodSecurityPolicy.
 - Add NetworkPolicy (for operator only).
+- Add expanded PSP for enabling CIS benchmarks.
 
 ## [0.2.1] - 2021-10-18
 
