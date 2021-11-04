@@ -5,6 +5,14 @@ starboard-app:
   image:
     repository: "quay.io/giantswarm/starboard-operator"
 
+  env-secret:
+    stringData:
+      OPERATOR_LOG_DEV_MODE: "true"
+      OPERATOR_CONCURRENT_SCAN_JOBS_LIMIT: "2"
+      OPERATOR_SCAN_JOB_RETRY_AFTER: "10m"
+      OPERATOR_BATCH_DELETE_LIMIT: "2"
+      OPERATOR_BATCH_DELETE_DELAY: "1m"
+
   rbac:
     pspEnabled: true
 
