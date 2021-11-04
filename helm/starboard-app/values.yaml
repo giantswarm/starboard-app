@@ -5,7 +5,7 @@ starboard-app:
   image:
     repository: "quay.io/giantswarm/starboard-operator"
 
-  env-secret:
+  envSecret:
     stringData:
       OPERATOR_LOG_DEV_MODE: "true"
       OPERATOR_CONCURRENT_SCAN_JOBS_LIMIT: "2"
