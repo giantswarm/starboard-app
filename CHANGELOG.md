@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Remove push to collections.
+- Reduce Starboard operator batch sizes and increase wait durations.
+
 ## [0.3.1] - 2021-11-02
 
 ### Changed
