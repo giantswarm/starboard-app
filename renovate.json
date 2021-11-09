@@ -1,7 +1,7 @@
 {
   "extends": [
     "config:base",
-    ":reviewer(team:giantswarm/team-ludacris)"
+    ":reviewer(team:sig-security)"
   ],
   "dependencyDashboard": true,
   "ignorePaths": [
