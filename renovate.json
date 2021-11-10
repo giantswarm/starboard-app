@@ -1,7 +1,6 @@
 {
   "extends": [
-    "config:base",
-    ":reviewer(team:sig-security)"
+    "config:base"
   ],
   "dependencyDashboard": true,
   "ignorePaths": [
