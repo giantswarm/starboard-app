@@ -1,3 +1,40 @@
 # Values can be found here https://github.com/aquasecurity/starboard/blob/v0.11.0/deploy/helm/values.yaml
 
-# starboard-app:
+starboard-app:
+
+  image:
+    repository: "quay.io/giantswarm/starboard-operator"
+
+  envSecret:
+    stringData:
+      OPERATOR_LOG_DEV_MODE: "true"
+      OPERATOR_CONCURRENT_SCAN_JOBS_LIMIT: "2"
+      OPERATOR_SCAN_JOB_RETRY_AFTER: "10m"
+      OPERATOR_BATCH_DELETE_LIMIT: "2"
+      OPERATOR_BATCH_DELETE_DELAY: "1m"
+
+  rbac:
+    pspEnabled: true
+
+  targetNamespaces: ""
+
+  trivy:
+    # Ideally, we use the in-cluster Trivy deployed from https://github.com/giantswarm/trivy-app
+    # We also set the image here so that starboard can be deployed "standalone",
+    # but this image is not used if using in-cluster Trivy.
+    # Change or remove the `mode:` setting to let starboard pull its own Trivy images.
+    imageRef: quay.io/giantswarm/trivy:0.19.2
+    mode: ClientServer
+    serverURL: "http://trivy-app:4954"
+
+  kubeBench:
+    imageRef: quay.io/giantswarm/kube-bench:0.6.3
+
+  polaris:
+    imageRef: quay.io/giantswarm/polaris:4.0
+
+  conftest:
+    imageRef: giantswarm/conftest:v0.25.0
+
+  aqua:
+    imageRef: giantswarm/scanner:5.3

@@ -1,6 +1,8 @@
 apiVersion: v2
 name: starboard-operator
+
 description: Keeps security report resources updated
+
 type: application
 
 # This is the chart version. This version number should be incremented each time you make changes
@@ -26,6 +28,6 @@ sources:
 #   - name: The maintainers name (required for each maintainer)
 #     email: The maintainers email (optional for each maintainer)
 #     url: A URL for the maintainer (optional for each maintainer)
-# icon: A URL to an SVG or PNG image to be used as an icon (optional).
+icon: https://s.giantswarm.io/app-icons/starboard/1/dark.png
 # annotations:
 #   example: A list of annotations keyed by name (optional).

@@ -7,12 +7,52 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.2] - 2021-11-10
+
+### Changed
+
+- Reduce Starboard operator batch sizes and increase wait durations.
+
+## [0.3.1] - 2021-11-02
+
+### Changed
+
+- Push starboard-app to AWS, Azure, and VMWare collections.
+
+## [0.3.0] - 2021-11-02
+
+### Changed
+
+- Use in-cluster Trivy by default.
+- Scan all namespaces by default.
+- Add PodSecurityPolicy.
+- Add NetworkPolicy (for operator only).
+- Add expanded PSP for enabling CIS benchmarks.
+
+## [0.2.1] - 2021-10-18
+
+### Changed
+
+- Repeat metadata changes done in v0.2.0 in a different place
+
+## [0.2.0] - 2021-10-15
+
+### Changed
+
 - Change dependency to use subtree
+- Use giantswarm retagged images
+- Add icon
+- Add "aqua" to the chart description
 
 ## [0.1.1] - 2021-09-08
 
 ## [0.1.0] - 2021-09-08
 
-[Unreleased]: https://github.com/giantswarm/starboard-app/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/giantswarm/starboard-app/compare/v0.3.2...HEAD
+[0.3.2]: https://github.com/giantswarm/starboard-app/compare/v0.3.1...v0.3.2
+[0.3.1]: https://github.com/giantswarm/starboard-app/compare/v0.3.0...v0.3.1
+[0.3.0]: https://github.com/giantswarm/starboard-app/compare/v0.2.1...v0.3.0
+[0.2.1]: https://github.com/giantswarm/starboard-app/compare/v0.2.0...v0.2.1
+[0.2.0]: https://github.com/giantswarm/starboard-app/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/giantswarm/starboard-app/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/giantswarm/starboard-app/releases/tag/v0.1.0

@@ -1,7 +1,6 @@
 {
   "extends": [
-    "config:base",
-    ":reviewer(team:giantswarm/team-ludacris)"
+    "config:base"
   ],
   "dependencyDashboard": true,
   "ignorePaths": [
