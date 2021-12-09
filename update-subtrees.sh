@@ -5,8 +5,7 @@
 upstream_version=main
 local_version=update_subtree_branch
 
-git remote add -f upstream https://github.com/grafana/helm-charts.git
-
+git remote add -f upstream https://github.com/giantswarm/starboard-upstream.git
 
 set -xe
 
