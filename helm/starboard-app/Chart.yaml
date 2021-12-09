@@ -17,5 +17,5 @@ version: [[ .Version ]]
 
 dependencies:
 - name: starboard-operator
-  version: "0.6.0"
+  version: "0.8.1"
   alias: starboard-app
