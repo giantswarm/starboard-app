@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update to upstream version 0.8.1 with `starboard-operator` version 0.13.1.
+- Use `trivy` version 0.21.0. App now requires Trivy 0.20.0 or above.
+
 ## [0.3.2] - 2021-11-10
 
 ### Changed
