@@ -23,7 +23,7 @@ starboard-app:
     # We also set the image here so that starboard can be deployed "standalone",
     # but this image is not used if using in-cluster Trivy.
     # Change or remove the `mode:` setting to let starboard pull its own Trivy images.
-    imageRef: quay.io/giantswarm/trivy:0.19.2
+    imageRef: quay.io/giantswarm/trivy:0.20.0
     mode: ClientServer
     serverURL: "http://trivy-app:4954"
 
