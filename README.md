@@ -4,7 +4,7 @@
 
 Giant Swarm offers an app for Aqua Security's [Starboard][starboard], which can be installed in workload clusters. It is part of our [managed security solution][managed-security], but can also be installed independently.
 
-Starboard is an in-cluster component which runs vulnerability scans of running workloads using [Trivy][trivy-aqua], Kubernetes CIS benchmark reports using [kube-bench][kube-bench], and configuration audits using [Polaris][polaris].
+Starboard is an in-cluster component which runs vulnerability scans of running workloads using [Trivy][trivy-aqua], Kubernetes CIS benchmark reports using [kube-bench][kube-bench], and configuration audits using [Polaris][polaris]. The results of these scans are saved in the cluster in the form of Kubernetes custom resources named `VulnerabilityReport`, `CISKubeBenchReport`, and `ConfigAuditReports`, respectively. It can also be configured to run more intrusive vulnerability scans using [kube-hunter][kube-hunter].
 
 This repository contains our packaging and Giant Swarm-specific configuration of the upstream charts.
 
@@ -69,6 +69,7 @@ git subtree merge --squash -P helm/starboard-app/charts/starboard-operator temp-
 [app-crd]: https://docs.giantswarm.io/ui-api/management-api/crd/apps.application.giantswarm.io/
 [app-ui]: https://docs.giantswarm.io/ui-api/web/app-platform/#installing-an-app
 [kube-bench]: https://github.com/aquasecurity/kube-bench
+[kube-hunter]: https://github.com/aquasecurity/kube-hunter
 [managed-security]: https://docs.giantswarm.io/app-platform/apps/security/
 [polaris]: https://github.com/FairwindsOps/polaris
 [starboard]: https://github.com/aquasecurity/starboard
