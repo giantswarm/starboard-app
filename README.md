@@ -2,33 +2,44 @@
 
 # Starboard-app chart
 
-Giant Swarm offers a [Starboard](https://github.com/aquasecurity/starboard) app which can be installed in workload clusters.
-Here we define the starboard-app chart with its templates and default configuration.
+Giant Swarm offers an app for Aqua Security's [Starboard][starboard], which can be installed in workload clusters. It is part of our [managed security solution][managed-security], but can also be installed independently.
 
-**What is this app?**
-**Why did we add it?**
-**Who can use it?**
+Starboard is an in-cluster component which runs vulnerability scans of running workloads using [Trivy][trivy-aqua], Kubernetes CIS benchmark reports using [kube-bench][kube-bench], and configuration audits using [Polaris][polaris].
+
+This repository contains our packaging and Giant Swarm-specific configuration of the upstream charts.
 
 ## Installing
 
 There are 3 ways to install this app onto a workload cluster.
 
-1. [Using our web interface](https://docs.giantswarm.io/ui-api/web/app-platform/#installing-an-app)
-2. [Using our API](https://docs.giantswarm.io/api/#operation/createClusterAppV5)
-3. Directly creating the [App custom resource](https://docs.giantswarm.io/ui-api/management-api/crd/apps.application.giantswarm.io/) on the management cluster.
+1. [Using our web interface][app-ui]
+2. [Using our API][app-api]
+3. Directly creating the [App custom resource][app-crd] on the management cluster.
 
-See our [full reference page on how to configure applications](https://docs.giantswarm.io/app-platform/app-configuration/) for more details.
+See our [full reference page on how to configure applications][app-config] for more details.
 
-## Updating from Upstream
+### Scanning Backend
 
-This repository contains two git subtrees tracking the [upstream charts](https://github.com/giantswarm/starboard-upstream) for Starboard:
+To perform vulnerability scans and produce `VulnerabilityReport` CRs, Starboard needs a vulnerability scanner.
+
+We recommend first installing our [Trivy app][trivy-app] in your cluster to serve as the vulnerability scanner for Starboard, or using another existing Trivy instance.
+
+Alternatively, you can configure Starboard to use Standalone mode, which creates an instance of the Trivy scanner per-scan. This is very inefficient and can lead to throttling by the backing vulnerability database. To do so, set `trivy.mode` to `Standalone` in `values.yaml`.
+
+In either case, please note that the Trivy version set by `trivy.imageRef` must be the same version as your Trivy backend (even if the actual image is not the same), as Starboard uses that value internally to determine the API format to use for Trivy.
+
+## Maintenance
+
+### Updating from Upstream
+
+This repository contains two git subtrees tracking the [upstream charts][upstream-copy] for Starboard:
 
 - the local `helm/starboard-app/charts/starboard-operator` path tracks the `deploy/helm` path upstream
 - the local `helm/starboard-app/charts/starboard-operator/crds` path tracks the `deploy/crd` path upstream
 
 To update the subtrees with new upstream changes:
 
-```
+```shell
 # Add the remote if you haven't already
 git remote add upstream https://github.com/giantswarm/starboard-upstream
 
@@ -52,3 +63,15 @@ git subtree merge --squash -P helm/starboard-app/charts/starboard-operator temp-
 
 * https://aquasecurity.github.io/helm-charts/ 
 * https://github.com/aquasecurity/starboard
+
+[app-api]: https://docs.giantswarm.io/api/#operation/createClusterAppV5
+[app-config]: https://docs.giantswarm.io/app-platform/app-configuration/
+[app-crd]: https://docs.giantswarm.io/ui-api/management-api/crd/apps.application.giantswarm.io/
+[app-ui]: https://docs.giantswarm.io/ui-api/web/app-platform/#installing-an-app
+[kube-bench]: https://github.com/aquasecurity/kube-bench
+[managed-security]: https://docs.giantswarm.io/app-platform/apps/security/
+[polaris]: https://github.com/FairwindsOps/polaris
+[starboard]: https://github.com/aquasecurity/starboard
+[trivy-app]: https://github.com/giantswarm/trivy-app/
+[trivy-aqua]: https://github.com/aquasecurity/trivy
+[upstream-copy]: https://github.com/giantswarm/starboard-upstream
