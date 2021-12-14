@@ -1,10 +1,20 @@
 [![CircleCI](https://circleci.com/gh/giantswarm/Starboard-app-app.svg?style=shield)](https://circleci.com/gh/giantswarm/Starboard-app)
 
-# Starboard-app chart
+# Starboard App
 
 Giant Swarm offers an app for Aqua Security's [Starboard][starboard], which can be installed in workload clusters. It is part of our [managed security solution][managed-security], but can also be installed independently.
 
-Starboard is an in-cluster component which runs vulnerability scans of running workloads using [Trivy][trivy-aqua], Kubernetes CIS benchmark reports using [kube-bench][kube-bench], and configuration audits using [Polaris][polaris]. The results of these scans are saved in the cluster in the form of Kubernetes custom resources named `VulnerabilityReport`, `CISKubeBenchReport`, and `ConfigAuditReports`, respectively. It can also be configured to run more intrusive vulnerability scans using [kube-hunter][kube-hunter].
+Starboard is an in-cluster component which runs vulnerability scans of running workloads using [Trivy][trivy-aqua], Kubernetes CIS benchmark reports using [kube-bench][kube-bench], and configuration audits using [Polaris][polaris]. The results of these scans are saved in the cluster in the form of Kubernetes custom resources named `VulnerabilityReport`, `CISKubeBenchReport`, and `ConfigAuditReport`, respectively. It can also be configured to run more intrusive vulnerability scans using [kube-hunter][kube-hunter].
+
+Results of each scan type can be retrieved from the cluster, for example using `kubectl`:
+
+```shell
+$ kubectl get vulnerabilityreports
+NAMESPACE   NAME    REPOSITORY   TAG   SCANNER   AGE
+...
+```
+
+You can also export the data from these reports to Prometheus to use in alerts and Grafana dashboards using our [`starboard-exporter`][starboard-exporter].
 
 This repository contains our packaging and Giant Swarm-specific configuration of the upstream charts.
 
@@ -73,6 +83,7 @@ git subtree merge --squash -P helm/starboard-app/charts/starboard-operator temp-
 [managed-security]: https://docs.giantswarm.io/app-platform/apps/security/
 [polaris]: https://github.com/FairwindsOps/polaris
 [starboard]: https://github.com/aquasecurity/starboard
+[starboard-exporter]: https://github.com/giantswarm/starboard-exporter
 [trivy-app]: https://github.com/giantswarm/trivy-app/
 [trivy-aqua]: https://github.com/aquasecurity/trivy
 [upstream-copy]: https://github.com/giantswarm/starboard-upstream
