@@ -17,47 +17,36 @@ There are 3 ways to install this app onto a workload cluster.
 2. [Using our API](https://docs.giantswarm.io/api/#operation/createClusterAppV5)
 3. Directly creating the [App custom resource](https://docs.giantswarm.io/ui-api/management-api/crd/apps.application.giantswarm.io/) on the management cluster.
 
-## Configuring
-
-### values.yaml
-**This is an example of a values file you could upload using our web interface.**
-```
-# values.yaml
-
-```
-
-### Sample App CR and ConfigMap for the management cluster
-If you have access to the Kubernetes API on the management cluster, you could create
-the App CR and ConfigMap directly.
-
-Here is an example that would install the app to
-workload cluster `abc12`:
-
-```
-# appCR.yaml
-
-```
-
-```
-# user-values-configmap.yaml
-
-
-```
-
 See our [full reference page on how to configure applications](https://docs.giantswarm.io/app-platform/app-configuration/) for more details.
 
-## Compatibility
+## Updating from Upstream
 
-This app has been tested to work with the following workload cluster release versions:
+This repository contains two git subtrees tracking the [upstream charts](https://github.com/giantswarm/starboard-upstream) for Starboard:
 
-*
+- the local `helm/starboard-app/charts/starboard-operator` path tracks the `deploy/helm` path upstream
+- the local `helm/starboard-app/charts/starboard-operator/crds` path tracks the `deploy/crd` path upstream
 
-## Limitations
+To update the subtrees with new upstream changes:
 
-Some apps have restrictions on how they can be deployed.
-Not following these limitations will most likely result in a broken deployment.
+```
+# Add the remote if you haven't already
+git remote add upstream https://github.com/giantswarm/starboard-upstream
 
-*
+git checkout upstream/main 
+git subtree split -P deploy/helm -b temp-split-helm
+
+# Next two steps only if you don't already have a branch for review
+git checkout master
+git checkout -b update
+
+# Update the subtree
+git subtree merge --squash -P helm/starboard-app/charts/starboard-operator temp-split-helm
+
+# Commit and push your changes
+
+# VERY IMPORTANT: When merging a PR including a subtree, do not squash the commits!
+# Squashing will destroy the tracking information for the subtree. If that happens, see scripts/subtree-update.sh.
+```
 
 ## Credit
 
