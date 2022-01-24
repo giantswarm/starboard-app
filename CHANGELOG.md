@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update to upstream version 0.14.0 (chart version 0.9.0).
+
 ### Removed
 
 - Remove unused `envSecret` values from `values.yaml`.
