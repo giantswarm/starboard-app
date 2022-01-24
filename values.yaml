@@ -35,12 +35,16 @@ operator:
 
   # vulnerabilityScannerEnabled the flag to enable vulnerability scanner
   vulnerabilityScannerEnabled: true
+  # vulnerabilityScannerReportTTL the flag to set how long a vulnerability report should exist. "" means that the vulnerabilityScannerReportTTL feature is disabled
+  vulnerabilityScannerReportTTL: ""
   # configAuditScannerEnabled the flag to enable configuration audit scanner
   configAuditScannerEnabled: true
   # kubernetesBenchmarkEnabled the flag to enable CIS Kubernetes Benchmark scanner
   kubernetesBenchmarkEnabled: true
   # batchDeleteLimit the maximum number of config audit reports deleted by the operator when the plugin's config has changed.
   batchDeleteLimit: 10
+  # vulnerabilityScannerScanOnlyCurrentRevisions the flag to only create vulnerability scans on the current revision of a deployment.
+  vulnerabilityScannerScanOnlyCurrentRevisions: false
   # batchDeleteDelay the duration to wait before deleting another batch of config audit reports.
   batchDeleteDelay: 10s
 image:
@@ -79,6 +83,10 @@ starboard:
   # annotated with. Example: `foo=bar,env=stage` will annotate the scanner pods with the annotations `foo: bar` and `env: stage`
   scanJobAnnotations: ""
 
+  # scanJobPodTemplateLabels comma-separated representation of the labels which the user wants the scanner pods to be
+  # labeled with. Example: `foo=bar,env=stage` will labeled the scanner pods with the labels `foo: bar` and `env: stage`
+  scanJobPodTemplateLabels: ""
+
 trivy:
   # createConfig indicates whether to create config objects
   createConfig: true
@@ -102,6 +110,12 @@ trivy:
   #
   # noProxy:
 
+  # Registries without SSL. There can be multiple registries with different keys.
+  nonSslRegistries: {}
+  #  pocRegistry: poc.myregistry.harbor.com.pl
+  #  qaRegistry: qa.registry.aquasec.com
+  #  internalRegistry: registry.registry.svc:5000
+
   # severity is a comma separated list of severity levels reported by Trivy.
   severity: UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
 
@@ -109,6 +123,12 @@ trivy:
   # vulnerabilities reported by Trivy. Set to "true" to enable it.
   #
   ignoreUnfixed: "false"
+
+  # ignoreFile can be used to tell Trivy to ignore vulnerabilities by ID (one per line)
+  #
+  # ignoreFile: |
+  #   CVE-1970-0001
+  #   CVE-1970-0002
 
   # resources resource requests and limits
   resources:
