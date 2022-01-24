@@ -2,6 +2,12 @@
 
 starboard-app:
 
+  operator:
+    # Reports are automatically deleted after this duration, causing a re-scan. Empty = never delete.
+    vulnerabilityScannerReportTTL: "168h"  # 7 days
+    # Generate reports for only the currently-deployed version of a replicaset.
+    vulnerabilityScannerScanOnlyCurrentRevisions: true
+
   image:
     repository: "quay.io/giantswarm/starboard-operator"
 

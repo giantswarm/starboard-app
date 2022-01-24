@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Update to upstream version 0.14.0 (chart version 0.9.0).
+- Automatically delete `VulnerabilityReports` after 7 days to trigger re-scan.
+- Only scan the current revision of a ReplicaSet.
 
 ### Removed
 
