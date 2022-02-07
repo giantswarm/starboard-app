@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.2] - 2022-02-07
+
 ### Added
 
 - Increase `trivy` scan Job memory limits to 1G.
@@ -77,7 +79,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0] - 2021-09-08
 
-[Unreleased]: https://github.com/giantswarm/giantswarm/compare/v0.5.1...HEAD
+[Unreleased]: https://github.com/giantswarm/giantswarm/compare/v0.5.2...HEAD
+[0.5.2]: https://github.com/giantswarm/giantswarm/compare/v0.5.1...v0.5.2
 [0.5.1]: https://github.com/giantswarm/giantswarm/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/giantswarm/starboard-app/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/giantswarm/starboard-app/compare/v0.3.2...v0.4.0
