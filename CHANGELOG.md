@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Increase `trivy` scan Job memory limits to 1G.
+
 ## [0.5.1] - 2022-01-28
 
 ### Fixed
