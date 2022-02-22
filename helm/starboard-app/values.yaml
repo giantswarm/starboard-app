@@ -14,6 +14,9 @@ starboard-app:
   rbac:
     pspEnabled: true
 
+  securityContext:
+    runAsUser: 10000
+
   targetNamespaces: ""
 
   trivy:
