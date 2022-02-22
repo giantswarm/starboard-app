@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Set container securityContext user to 10000 to a void confusion about non-numeric users.
+
 ## [0.5.2] - 2022-02-08
 
 ### Added
