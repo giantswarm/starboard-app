@@ -71,7 +71,6 @@ git subtree merge --squash -P helm/starboard-app/charts/starboard-operator temp-
 * https://aquasecurity.github.io/helm-charts/ 
 * https://github.com/aquasecurity/starboard
 
-[app-api]: https://docs.giantswarm.io/api/#operation/createClusterAppV5
 [app-config]: https://docs.giantswarm.io/app-platform/app-configuration/
 [app-crd]: https://docs.giantswarm.io/ui-api/management-api/crd/apps.application.giantswarm.io/
 [app-getting-started]: https://docs.giantswarm.io/app-platform/getting-started/
