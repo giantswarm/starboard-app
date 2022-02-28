@@ -20,13 +20,10 @@ This repository contains our packaging and Giant Swarm-specific configuration of
 
 ## Installing
 
-There are 3 ways to install this app onto a workload cluster.
+There are several ways to install this app onto a workload cluster.
 
-1. [Using our web interface][app-ui]
-2. [Using our API][app-api]
-3. Directly creating the [App custom resource][app-crd] on the management cluster.
-
-See our [full reference page on how to configure applications][app-config] for more details.
+- [Using our web interface][app-ui]
+- By creating an [App resource][app-crd] in the management cluster as explained in [Getting started with App Platform][app-getting-started].
 
 ### Scanning Backend
 
@@ -74,9 +71,9 @@ git subtree merge --squash -P helm/starboard-app/charts/starboard-operator temp-
 * https://aquasecurity.github.io/helm-charts/ 
 * https://github.com/aquasecurity/starboard
 
-[app-api]: https://docs.giantswarm.io/api/#operation/createClusterAppV5
 [app-config]: https://docs.giantswarm.io/app-platform/app-configuration/
 [app-crd]: https://docs.giantswarm.io/ui-api/management-api/crd/apps.application.giantswarm.io/
+[app-getting-started]: https://docs.giantswarm.io/app-platform/getting-started/
 [app-ui]: https://docs.giantswarm.io/ui-api/web/app-platform/#installing-an-app
 [kube-bench]: https://github.com/aquasecurity/kube-bench
 [kube-hunter]: https://github.com/aquasecurity/kube-hunter
