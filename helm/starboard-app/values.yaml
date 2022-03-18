@@ -24,6 +24,14 @@ starboard-app:
     imageRef: quay.io/giantswarm/trivy:0.21.0
     mode: ClientServer
     serverURL: "http://trivy-app:4954"
+    # Resources for Trivy pods created by Starboard
+    resources:
+      requests:
+        cpu: 100m
+        memory: 100M
+      limits:
+        cpu: 500m
+        memory: 1G
 
   kubeBench:
     imageRef: quay.io/giantswarm/kube-bench:0.6.3
