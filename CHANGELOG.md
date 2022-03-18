@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Update to upstream version 0.9.1 with `starboard-operator` version 0.14.1.
 - Move resource limit overrides to the App instead of modifying the upstream chart.
 
 ## [0.5.2] - 2022-02-08
