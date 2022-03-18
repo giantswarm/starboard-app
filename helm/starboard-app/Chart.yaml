@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: 0.14.0
+appVersion: 0.14.1
 annotations:
   application.giantswarm.io/team: "honeybadger"
   config.giantswarm.io/version: 1.x.x
@@ -17,5 +17,5 @@ version: [[ .Version ]]
 
 dependencies:
 - name: starboard-operator
-  version: "0.9.0"
+  version: "0.9.1"
   alias: starboard-app
