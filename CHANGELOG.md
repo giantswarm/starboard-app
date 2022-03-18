@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Move resource limit overrides to the App instead of modifying the upstream chart.
+
 ## [0.5.2] - 2022-02-08
 
 ### Added
