@@ -67,10 +67,10 @@ workflows:
       #        only: /^v.*/
 
 #       - architect/push-to-app-collection:
-#           name: vmware-app-collection
+#           name: vsphere-app-collection
 #           context: "architect"
 #           app_name: "starboard-app"
-#           app_collection_repo: "vmware-app-collection"
+#           app_collection_repo: "vsphere-app-collection"
 #           requires:
 #             - push-starboard-app-to-control-plane-catalog
 #           filters:
