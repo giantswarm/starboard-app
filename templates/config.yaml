@@ -24,6 +24,9 @@ data:
   {{- if .Values.operator.kubernetesBenchmarkEnabled }}
   kube-bench.imageRef: {{ required ".Values.kubeBench.imageRef is required" .Values.kubeBench.imageRef | quote }}
   {{- end }}
+  {{- if .Values.operator.clusterComplianceEnabled }}
+  compliance.failEntriesLimit: {{ required ".Values.compliance.failEntriesLimit is required" .Values.compliance.failEntriesLimit | quote }}
+  {{- end }}
 ---
 apiVersion: v1
 kind: Secret
@@ -50,6 +53,9 @@ data:
   {{- if .httpsProxy }}
   trivy.httpsProxy: {{ .httpsProxy | quote }}
   {{- end }}
+  {{- if .serverInsecure }}
+  trivy.serverInsecure: {{ .serverInsecure | quote }}
+  {{- end }}
   {{- if .noProxy }}
   trivy.noProxy: {{ .noProxy | quote }}
   {{- end }}
@@ -59,6 +65,9 @@ data:
   trivy.severity: {{ .severity | quote }}
   {{- if .ignoreUnfixed }}
   trivy.ignoreUnfixed: {{ .ignoreUnfixed | quote }}
+  {{- end }}
+  {{- if .timeout }}
+  trivy.timeout: {{ .timeout | quote }}
   {{- end }}
   {{- with .ignoreFile }}
   trivy.ignoreFile: |
