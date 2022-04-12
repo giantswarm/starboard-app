@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Update to upstream version 0.10.3 with `starboard-operator` version 0.15.3.
+- Add `specs` folder as a new subtree.
 
 ## [0.6.0] - 2022-03-23
 
