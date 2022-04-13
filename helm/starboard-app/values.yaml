@@ -1,4 +1,6 @@
-# Values can be found here https://github.com/aquasecurity/starboard/blob/v0.11.0/deploy/helm/values.yaml
+# We install CRDs through a Job with the helm specific crd folder.
+crds:
+  install: true
 
 starboard-app:
 
