@@ -10,7 +10,7 @@ allowed length for a configmap if they are combined.
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "starboard-operator.crdInstall" . }}-{{ $path | base | trimSuffix ".yaml" }}
+  name: {{ include "starboard-operator.crdInstall" . }}-{{ $path | base | trimSuffix ".crd.yaml" }}
   namespace: {{ .Release.Namespace | quote }}
   annotations:
     # create hook dependencies in the right order
