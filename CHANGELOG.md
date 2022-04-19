@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Move crds subtree out of upstream chart.
+- Use crd-install pre-install job.
+
+## [0.7.0] - 2022-04-12
+
+### Changed
+
+- Update to upstream version 0.10.3 with `starboard-operator` version 0.15.3.
+- Add `specs` folder as a new subtree.
+
+## [0.6.0] - 2022-03-23
+
+### Changed
+
+- Update to upstream version 0.9.1 with `starboard-operator` version 0.14.1.
+- Move resource limit overrides to the App instead of modifying the upstream chart.
+- Override Trivy version to use newer v0.24.0.
+
 ## [0.5.2] - 2022-02-08
 
 ### Added
@@ -79,7 +99,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0] - 2021-09-08
 
-[Unreleased]: https://github.com/giantswarm/starboard-app/compare/v0.5.2...HEAD
+[Unreleased]: https://github.com/giantswarm/starboard-app/compare/v0.7.0...HEAD
+[0.7.0]: https://github.com/giantswarm/starboard-app/compare/v0.6.0...v0.7.0
+[0.6.0]: https://github.com/giantswarm/starboard-app/compare/v0.5.2...v0.6.0
 [0.5.2]: https://github.com/giantswarm/starboard-app/compare/v0.5.1...v0.5.2
 [0.5.1]: https://github.com/giantswarm/starboard-app/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/giantswarm/starboard-app/compare/v0.4.0...v0.5.0
