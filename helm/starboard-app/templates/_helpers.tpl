@@ -1,5 +1,5 @@
 {{- define "starboard-operator.crdInstall" -}}
-{{- printf "%s-%s" ( include "starboard-operator.name" . ) "crd-install" | replace "+" "_" | trimSuffix "-" -}}
+{{- printf "%s-%s" ( include "starboard-operator.name" (index .Subcharts "starboard-operator") ) "crd-install" | replace "+" "_" | trimSuffix "-" -}}
 {{- end -}}
 
 {{- define "starboard-operator.CRDInstallAnnotations" -}}
