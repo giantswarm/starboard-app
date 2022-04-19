@@ -48,7 +48,7 @@ starboard-app:
     imageRef: docker.io/giantswarm/polaris:4.0
 
   conftest:
-    imageRef: docker/conftest:v0.25.0
+    imageRef: docker.io/giantswarm/conftest:v0.25.0
 
   aqua:
     imageRef: giantswarm/scanner:5.3
