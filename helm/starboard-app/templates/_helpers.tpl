@@ -1,9 +1,3 @@
-{{/* vim: set filetype=mustache: */}}
-{{/* Expand the name of the chart. This is suffixed with -alertmanager, which means subtract 13 from longest 63 available */}}
-{{- define "starboard-operator.name" -}}
-{{- default .Chart.Name .Values.nameOverride | trunc 50 | trimSuffix "-" -}}
-{{- end }}
-
 {{- define "starboard-operator.crdInstall" -}}
 {{- printf "%s-%s" ( include "starboard-operator.name" . ) "crd-install" | replace "+" "_" | trimSuffix "-" -}}
 {{- end -}}
