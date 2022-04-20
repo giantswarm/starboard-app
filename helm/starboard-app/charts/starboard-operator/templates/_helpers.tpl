@@ -35,7 +35,7 @@ Create chart name and version as used by the chart label.
 Common labels
 */}}
 {{- define "starboard-operator.labels" -}}
-application.giantswarm.io/team: {{ index .Chart.Annotations "application.giantswarm.io/team" | quote }}
+{{/* application.giantswarm.io/team: { { index .Chart.Annotations "application.giantswarm.io/team" | quote } } */}}
 {{- if eq .Values.managedBy "Helm" -}}
 helm.sh/chart: {{ include "starboard-operator.chart" . }}
 {{ end -}}
