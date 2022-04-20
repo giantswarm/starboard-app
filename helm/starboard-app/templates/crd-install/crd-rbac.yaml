@@ -10,8 +10,8 @@ metadata:
     {{- include "starboard-operator.CRDInstallAnnotations" . | nindent 4 }}
   labels:
     app.kubernetes.io/component: {{ include "starboard-operator.crdInstall" . | quote }}
-    {{- include "starboard-operator.selectorLabels" . | nindent 4 }}
     role: {{ include "starboard-operator.CRDInstallSelector" . | quote }}
+    {{- include "starboard-operator.selectorLabels" . | nindent 4 }}
 rules:
 - apiGroups:
   - ""
