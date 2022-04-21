@@ -19,7 +19,7 @@ CRD installation helpers used by Giant Swarm.
 Spec post-install job used to apply upstream specs depending on CRDs.
 */}}
 {{- define "starboard-operator.specInstall" -}}
-{{- printf "%s-%s" ( default .Chart.Name .Values.nameOverride | trunc 63 ) "crd-install" | replace "+" "_" | trimSuffix "-" -}}
+{{- printf "%s-%s" ( default .Chart.Name .Values.nameOverride | trunc 63 ) "spec-install" | replace "+" "_" | trimSuffix "-" -}}
 {{- end -}}
 
 {{- define "starboard-operator.specInstallAnnotations" -}}
