@@ -9,7 +9,7 @@ Create a ConfigMap for each spec, since they can be larger the maximum allowed s
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "starboard-operator.specInstall" . }}-{{ $path | base | replace "." "_" | trimSuffix ".yaml" }}
+  name: {{ include "starboard-operator.specInstall" . }}-{{ $path | base | trimSuffix ".yaml" | replace "." "-" }}
   namespace: {{ .Release.Namespace | quote }}
   annotations:
     # create hook dependencies in the right order
