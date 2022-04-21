@@ -50,7 +50,7 @@ spec:
 {{ $currentScope := . }}
 {{- range $path, $_ := .Files.Glob "specs/**" }}
     {{- with $currentScope }}
-      - name: {{ $path | base | trimSuffix ".yaml" }}
+      - name: {{ $path | base | trimSuffix ".yaml" | replace "." "-" }}
         configMap:
           name: {{ include "starboard-operator.specInstall" . }}-{{ $path | base | trimSuffix ".yaml" | replace "." "-" }}
           items:
