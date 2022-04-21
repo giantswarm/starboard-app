@@ -1,0 +1,63 @@
+{{- if .Values.specs.install }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "starboard-operator.specInstall" . }}
+  namespace: {{ .Release.Namespace | quote }}
+  annotations:
+    # create hook dependencies in the right order
+    "helm.sh/hook-weight": "-1"
+    {{- include "starboard-operator.specInstallAnnotations" . | nindent 4 }}
+  labels:
+    app.kubernetes.io/component: {{ include "starboard-operator.specInstall" . | quote }}
+    {{- include "starboard-operator.selectorLabels" . | nindent 4 }}
+    role: {{ include "starboard-operator.specInstallSelector" . | quote }}
+spec:
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: {{ include "starboard-operator.specInstall" . | quote }}
+        {{- include "starboard-operator.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "starboard-operator.specInstall" . }}
+      securityContext:
+        runAsUser: 65534
+        runAsGroup: 65534
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+      containers:
+      - name: kubectl
+        image: "{{ .Values.image.registry }}/giantswarm/docker-kubectl:latest"
+        command:
+        - sh
+        - -c
+        - |
+          set -o errexit ; set -o xtrace ; set -o nounset
+
+          # piping stderr to stdout means kubectl's errors are surfaced
+          # in the pod's logs.
+
+          kubectl apply -f /data/ 2>&1
+        volumeMounts:
+{{- range $path, $_ := .Files.Glob "specs/**" }}
+        - name: {{ $path | base | trimSuffix ".yaml" }}
+          mountPath: /data/{{ $path | base }}
+          subPath: {{ $path | base }}
+{{- end }}
+        resources: {{- toYaml .Values.specs.resources | nindent 10 }}
+      volumes:
+{{ $currentScope := . }}
+{{- range $path, $_ := .Files.Glob "specs/**" }}
+    {{- with $currentScope }}
+      - name: {{ $path | base | trimSuffix ".yaml" }}
+        configMap:
+          name: {{ include "starboard-operator.specInstall" . }}-{{ $path | base | trimSuffix ".yaml" }}
+          items:
+          - key: content
+            path: {{ $path | base }}
+{{- end }}
+{{- end }}
+      restartPolicy: Never
+  backoffLimit: 4
+{{- end }}

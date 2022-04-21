@@ -1,0 +1,27 @@
+{{/*
+Create a ConfigMap for each spec, since they can be larger the maximum allowed size.
+*/}}
+{{ $currentScope := . }}
+{{- if .Values.specs.install }}
+  {{- range $path, $_ := .Files.Glob "specs/**" }}
+    {{- with $currentScope }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "starboard-operator.specInstall" . }}-{{ $path | base | trimSuffix ".yaml" }}
+  namespace: {{ .Release.Namespace | quote }}
+  annotations:
+    # create hook dependencies in the right order
+    "helm.sh/hook-weight": "-5"
+    {{- include "starboard-operator.specInstallAnnotations" . | nindent 4 }}
+  labels:
+    app.kubernetes.io/component: {{ include "starboard-operator.specInstall" . | quote }}
+    {{- include "starboard-operator.selectorLabels" . | nindent 4 }}
+    role: {{ include "starboard-operator.specInstallSelector" . | quote }}
+data:
+  content: |
+{{ .Files.Get $path | indent 4 }}
+    {{- end }}
+  {{- end }}
+{{- end }}
