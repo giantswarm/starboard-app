@@ -54,7 +54,7 @@ git checkout upstream/main
 git subtree split -P deploy/helm -b temp-split-helm
 
 # Next two steps only if you don't already have a branch for review
-git checkout master
+git checkout main
 git checkout -b update
 
 # Update the subtree
