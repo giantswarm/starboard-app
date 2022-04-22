@@ -16,7 +16,7 @@ CRD installation helpers used by Giant Swarm.
 {{- end -}}
 
 {{/*
-Spec post-install job used to apply upstream specs depending on CRDs.
+Spec post-install job used to apply upstream specs which depend on CRDs being installed first.
 */}}
 {{- define "starboard-operator.specInstall" -}}
 {{- printf "%s-%s" ( default .Chart.Name .Values.nameOverride | trunc 63 ) "spec-install" | replace "+" "_" | trimSuffix "-" -}}

@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Move crds subtree out of upstream chart.
 - Use crd-install pre-install job.
+- Move specs subtree out of upstream chart.
+- Use spec-install post-install job.
 
 ## [0.7.0] - 2022-04-12
 

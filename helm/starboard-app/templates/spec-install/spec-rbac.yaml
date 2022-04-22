@@ -23,7 +23,7 @@ rules:
 - apiGroups:
   - aquasecurity.github.io
   resources:
-  - clustercompliancereport
+  - clustercompliancereports
   verbs:
   - create
   - delete
