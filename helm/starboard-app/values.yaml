@@ -2,6 +2,10 @@
 crds:
   install: true
 
+# Upstream offers compliance specs which can be optionally installed.
+specs:
+  install: true
+
 # managedBy is similar to .Release.Service but allows to overwrite the value
 managedBy: Helm
 
