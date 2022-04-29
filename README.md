@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/Starboard-app-app.svg?style=shield)](https://circleci.com/gh/giantswarm/Starboard-app)
+[![CircleCI](https://circleci.com/gh/giantswarm/starboard-app.svg?style=shield)](https://circleci.com/gh/giantswarm/starboard-app)
 
 # Starboard App
 
