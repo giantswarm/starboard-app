@@ -5,12 +5,14 @@ orbs:
 workflows:
   package-and-push-chart-on-tag:
     jobs:
+      # Build chart and push to catalogs.
       - architect/push-to-app-catalog:
           context: "architect"
           name: push-starboard-app-to-control-plane-catalog
           app_catalog: "control-plane-catalog"
           app_catalog_test: "control-plane-test-catalog"
           chart: "starboard-app"
+          executor: "app-build-suite"
           # Trigger job on git tag.
           filters:
             tags:
@@ -22,11 +24,14 @@ workflows:
           app_catalog: "giantswarm-catalog"
           app_catalog_test: "giantswarm-test-catalog"
           chart: "starboard-app"
+          executor: "app-build-suite"
+          persist_chart_archive: true
           # Trigger job on git tag.
           filters:
             tags:
               only: /^v.*/
 
+      # Push starboard to collections.
       - architect/push-to-app-collection:
           name: aws-app-collection
           context: "architect"
@@ -52,29 +57,3 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v.*/
-
-      #- architect/push-to-app-collection:
-      #    name: kvm-app-collection
-      #    context: "architect"
-      #    app_name: "starboard-app"
-      #    app_collection_repo: "kvm-app-collection"
-      #    requires:
-      #      - push-starboard-app-to-control-plane-catalog
-      #    filters:
-      #      branches:
-      #        ignore: /.*/
-      #      tags:
-      #        only: /^v.*/
-
-#       - architect/push-to-app-collection:
-#           name: vsphere-app-collection
-#           context: "architect"
-#           app_name: "starboard-app"
-#           app_collection_repo: "vsphere-app-collection"
-#           requires:
-#             - push-starboard-app-to-control-plane-catalog
-#           filters:
-#             branches:
-#               ignore: /.*/
-#             tags:
-#               only: /^v.*/
