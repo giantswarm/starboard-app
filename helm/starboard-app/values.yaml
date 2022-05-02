@@ -1,5 +1,5 @@
 # We install CRDs through a Job with the helm specific crd folder.
-crds:  
+crds:
   image:
     tag: 1.23.6
   install: true
