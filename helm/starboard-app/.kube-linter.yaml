@@ -2,7 +2,6 @@ checks:
   addAllBuiltIn: true
   exclude:
   - "no-read-only-root-fs"
-  # - "non-existent-service-account"
   - "required-annotation-email"
   - "required-label-owner"
   - "no-liveness-probe"
