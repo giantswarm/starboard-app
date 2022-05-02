@@ -5,6 +5,10 @@ checks:
   # - "non-existent-service-account"
   - "required-annotation-email"
   - "required-label-owner"
-  # - "use-namespace"  # Upstream doesn't include namespace.
-  # - "minimum-three-replicas"  # Upstream doesn't specify, and only 1 is currently needed.
-  # - "no-rolling-update-strategy"  # Upstream doesn't include strategy.
+  - "no-liveness-probe"
+  - "no-readiness-probe"
+  - "unset-memory-requirements"
+  - "access-to-create-pods"
+  - "use-namespace"  # Upstream doesn't include namespace.
+  - "minimum-three-replicas"  # Upstream doesn't specify, and only 1 is currently needed.
+  - "no-rolling-update-strategy"  # Upstream doesn't include strategy.
