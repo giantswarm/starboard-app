@@ -9,6 +9,9 @@ checks:
   - "no-readiness-probe"
   - "unset-memory-requirements"
   - "access-to-create-pods"
+  - "unset-cpu-requirements"
+  - "run-as-non-root"
+  - "access-to-secrets"
   - "use-namespace"  # Upstream doesn't include namespace.
   - "minimum-three-replicas"  # Upstream doesn't specify, and only 1 is currently needed.
   - "no-rolling-update-strategy"  # Upstream doesn't include strategy.

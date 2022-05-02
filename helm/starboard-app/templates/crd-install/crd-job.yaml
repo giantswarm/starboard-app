@@ -28,7 +28,7 @@ spec:
         effect: NoSchedule
       containers:
       - name: kubectl
-        image: "{{ .Values.image.registry }}/giantswarm/docker-kubectl:latest"
+        image: "{{ .Values.image.registry }}/giantswarm/docker-kubectl:{{ include .Values.crds.image.tag }}"
         command:
         - sh
         - -c
