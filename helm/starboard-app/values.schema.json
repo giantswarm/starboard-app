@@ -1,0 +1,141 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "crds": {
+            "type": "object",
+            "properties": {
+                "install": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "image": {
+            "type": "object",
+            "properties": {
+                "registry": {
+                    "type": "string"
+                }
+            }
+        },
+        "managedBy": {
+            "type": "string"
+        },
+        "specs": {
+            "type": "object",
+            "properties": {
+                "install": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "starboard-app": {
+            "type": "object",
+            "properties": {
+                "aqua": {
+                    "type": "object",
+                    "properties": {
+                        "imageRef": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "conftest": {
+                    "type": "object",
+                    "properties": {
+                        "imageRef": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "image": {
+                    "type": "object",
+                    "properties": {
+                        "repository": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "kubeBench": {
+                    "type": "object",
+                    "properties": {
+                        "imageRef": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "operator": {
+                    "type": "object",
+                    "properties": {
+                        "vulnerabilityScannerReportTTL": {
+                            "type": "string"
+                        },
+                        "vulnerabilityScannerScanOnlyCurrentRevisions": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "polaris": {
+                    "type": "object",
+                    "properties": {
+                        "imageRef": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "rbac": {
+                    "type": "object",
+                    "properties": {
+                        "pspEnabled": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "targetNamespaces": {
+                    "type": "string"
+                },
+                "trivy": {
+                    "type": "object",
+                    "properties": {
+                        "imageRef": {
+                            "type": "string"
+                        },
+                        "mode": {
+                            "type": "string"
+                        },
+                        "resources": {
+                            "type": "object",
+                            "properties": {
+                                "limits": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cpu": {
+                                            "type": "string"
+                                        },
+                                        "memory": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "requests": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cpu": {
+                                            "type": "string"
+                                        },
+                                        "memory": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "serverURL": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,10 +1,28 @@
 # We install CRDs through a Job with the helm specific crd folder.
 crds:
+  image:
+    tag: 1.23.6
   install: true
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
 
 # Upstream offers compliance specs which can be optionally installed.
 specs:
+  image:
+    tag: 1.23.6
   install: true
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
 
 # managedBy is similar to .Release.Service but allows to overwrite the value
 managedBy: Helm
