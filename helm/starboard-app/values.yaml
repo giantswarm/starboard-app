@@ -46,6 +46,11 @@ starboard-app:
 
   targetNamespaces: ""
 
+  securityContext:
+    runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault
+
   trivy:
     # Ideally, we use the in-cluster Trivy deployed from https://github.com/giantswarm/trivy-app
     # We also set the image here so that starboard can be deployed "standalone",
