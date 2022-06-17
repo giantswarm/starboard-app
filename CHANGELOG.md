@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Build with `app-build-suite` instead of `architect`.
+- Set RuntimeDefault seccomp and run as non-root security context.
 
 ## [0.7.1] - 2022-04-22
 
