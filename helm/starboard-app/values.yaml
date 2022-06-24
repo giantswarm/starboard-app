@@ -34,6 +34,7 @@ image:
 # Pod securityContext
 podSecurityContext:
   runAsNonRoot: true
+  runAsUser: 10000  # UID of `starboard` user from upstream
   seccompProfile:
     type: RuntimeDefault
 
