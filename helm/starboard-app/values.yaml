@@ -46,6 +46,7 @@ securityContext:
   privileged: false
   readOnlyRootFilesystem: true
   runAsNonRoot: true
+  runAsUser: 10000  # UID of `starboard` user from upstream.
   seccompProfile:
     type: RuntimeDefault
 
