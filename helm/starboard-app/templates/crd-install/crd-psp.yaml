@@ -25,6 +25,7 @@ spec:
         max: 65535
   volumes:
   - 'configMap'
+  - 'projected'
   hostPID: false
   hostIPC: false
   hostNetwork: false
