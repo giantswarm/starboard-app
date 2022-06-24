@@ -25,6 +25,7 @@ spec:
         runAsGroup: 65534
         {{- with .Values.podSecurityContext }}
         {{- . | toYaml | nindent 8 }}
+        {{- end }}
       tolerations:
       - key: node-role.kubernetes.io/master
         effect: NoSchedule
