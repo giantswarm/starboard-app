@@ -30,22 +30,7 @@ managedBy: Helm
 image:
   registry: "docker.io"
 
-starboard-app:
-
-  operator:
-    # Reports are automatically deleted after this duration, causing a re-scan. Empty = never delete.
-    vulnerabilityScannerReportTTL: "168h"  # 7 days
-    # Generate reports for only the currently-deployed version of a replicaset.
-    vulnerabilityScannerScanOnlyCurrentRevisions: true
-
-  image:
-    repository: "docker.io/giantswarm/starboard-operator"
-
-  rbac:
-    pspEnabled: true
-
-  targetNamespaces: ""
-
+# Security contexts for CRD and spec installs.
 # Pod securityContext
 podSecurityContext:
   runAsNonRoot: true
@@ -63,6 +48,40 @@ securityContext:
   runAsNonRoot: true
   seccompProfile:
     type: RuntimeDefault
+
+starboard-app:
+
+  operator:
+    # Reports are automatically deleted after this duration, causing a re-scan. Empty = never delete.
+    vulnerabilityScannerReportTTL: "168h"  # 7 days
+    # Generate reports for only the currently-deployed version of a replicaset.
+    vulnerabilityScannerScanOnlyCurrentRevisions: true
+
+  image:
+    repository: "docker.io/giantswarm/starboard-operator"
+
+  rbac:
+    pspEnabled: true
+
+  targetNamespaces: ""
+
+  # Pod securityContext
+  podSecurityContext:
+    runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault
+
+  # Container securityContext
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    privileged: false
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault
 
   trivy:
     # Ideally, we use the in-cluster Trivy deployed from https://github.com/giantswarm/trivy-app
