@@ -6,6 +6,7 @@ metadata:
   annotations:
     # create hook dependencies in the right order
     "helm.sh/hook-weight": "-6"
+    seccomp.security.alpha.kubernetes.io/allowedProfileNames: 'runtime/default'
     {{- include "starboard-operator.specInstallAnnotations" . | nindent 4 }}
   labels:
     app.kubernetes.io/component: {{ include "starboard-operator.specInstall" . | quote }}
@@ -24,6 +25,7 @@ spec:
         max: 65535
   volumes:
   - 'configMap'
+  - 'projected'
   hostPID: false
   hostIPC: false
   hostNetwork: false

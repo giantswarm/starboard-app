@@ -23,6 +23,9 @@ spec:
       securityContext:
         runAsUser: 65534
         runAsGroup: 65534
+        {{- with .Values.podSecurityContext }}
+        {{- . | toYaml | nindent 8 }}
+        {{- end }}
       tolerations:
       - key: node-role.kubernetes.io/master
         effect: NoSchedule
@@ -46,6 +49,10 @@ spec:
           subPath: {{ $path | base }}
 {{- end }}
         resources: {{- toYaml .Values.specs.resources | nindent 10 }}
+        {{- with .Values.securityContext }}
+        securityContext:
+          {{- . | toYaml | nindent 10 }}
+        {{- end }}
       volumes:
 {{ $currentScope := . }}
 {{- range $path, $_ := .Files.Glob "specs/**" }}

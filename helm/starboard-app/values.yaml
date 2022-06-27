@@ -30,6 +30,29 @@ managedBy: Helm
 image:
   registry: "docker.io"
 
+# Security contexts for CRD and spec installs.
+# Pod securityContext
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 10000  # UID of `starboard` user from upstream
+  runAsGroup: 10000  # UID of `starboard` user from upstream
+  seccompProfile:
+    type: RuntimeDefault
+
+# Container securityContext
+securityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
+  privileged: false
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 10000  # UID of `starboard` user from upstream.
+  runAsGroup: 10000  # UID of `starboard` user from upstream
+  seccompProfile:
+    type: RuntimeDefault
+
 starboard-app:
 
   operator:
@@ -45,6 +68,28 @@ starboard-app:
     pspEnabled: true
 
   targetNamespaces: ""
+
+  # Pod securityContext
+  podSecurityContext:
+    runAsNonRoot: true
+    runAsUser: 10000  # UID of `starboard` user from upstream.
+    runAsGroup: 10000  # UID of `starboard` user from upstream
+    seccompProfile:
+      type: RuntimeDefault
+
+  # Container securityContext
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    privileged: false
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 10000  # UID of `starboard` user from upstream.
+    runAsGroup: 10000  # UID of `starboard` user from upstream
+    seccompProfile:
+      type: RuntimeDefault
 
   trivy:
     # Ideally, we use the in-cluster Trivy deployed from https://github.com/giantswarm/trivy-app
