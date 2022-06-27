@@ -3,16 +3,16 @@ appVersion: 0.15.3
 annotations:
   application.giantswarm.io/team: "honeybadger"
   config.giantswarm.io/version: 1.x.x
-description: A Helm chart for aqua starboard
+description: A Helm chart for aqua Starboard. Starboard attempts to integrate heterogeneous security tools by incorporating their outputs into Kubernetes CRDs.
 engine: gotpl
 home: https://github.com/giantswarm/starboard-app
 icon: https://s.giantswarm.io/app-icons/starboard/1/dark.png
 maintainers:
 - name: Giant Swarm applications team
   url: https://github.com/giantswarm/starboard-app
-name: starboard-app
+name: starboard
 sources:
-- https://github.com/giantswarm/starboard-app
+- https://github.com/aquasecurity/starboard
 version: [[ .Version ]]
 
 dependencies:
