@@ -1,4 +1,57 @@
-# Values can be found here https://github.com/aquasecurity/starboard/blob/v0.11.0/deploy/helm/values.yaml
+# We install CRDs through a Job with the helm specific crd folder.
+crds:
+  image:
+    tag: 1.23.6
+  install: true
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+# Upstream offers compliance specs which can be optionally installed.
+specs:
+  image:
+    tag: 1.23.6
+  install: true
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+# managedBy is similar to .Release.Service but allows to overwrite the value
+managedBy: Helm
+
+image:
+  registry: "docker.io"
+
+# Security contexts for CRD and spec installs.
+# Pod securityContext
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 10000  # UID of `starboard` user from upstream
+  runAsGroup: 10000  # UID of `starboard` user from upstream
+  seccompProfile:
+    type: RuntimeDefault
+
+# Container securityContext
+securityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
+  privileged: false
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 10000  # UID of `starboard` user from upstream.
+  runAsGroup: 10000  # UID of `starboard` user from upstream
+  seccompProfile:
+    type: RuntimeDefault
 
 starboard-app:
 
@@ -9,19 +62,41 @@ starboard-app:
     vulnerabilityScannerScanOnlyCurrentRevisions: true
 
   image:
-    repository: "quay.io/giantswarm/starboard-operator"
+    repository: "docker.io/giantswarm/starboard-operator"
 
   rbac:
     pspEnabled: true
 
   targetNamespaces: ""
 
+  # Pod securityContext
+  podSecurityContext:
+    runAsNonRoot: true
+    runAsUser: 10000  # UID of `starboard` user from upstream.
+    runAsGroup: 10000  # UID of `starboard` user from upstream
+    seccompProfile:
+      type: RuntimeDefault
+
+  # Container securityContext
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    privileged: false
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 10000  # UID of `starboard` user from upstream.
+    runAsGroup: 10000  # UID of `starboard` user from upstream
+    seccompProfile:
+      type: RuntimeDefault
+
   trivy:
     # Ideally, we use the in-cluster Trivy deployed from https://github.com/giantswarm/trivy-app
     # We also set the image here so that starboard can be deployed "standalone",
     # but this image is not used if using in-cluster Trivy.
     # Change or remove the `mode:` setting to let starboard pull its own Trivy images.
-    imageRef: quay.io/giantswarm/trivy:0.24.0
+    imageRef: docker.io/giantswarm/trivy:0.24.0
     mode: ClientServer
     serverURL: "http://trivy-app:4954"
     # Resources for Trivy pods created by Starboard
@@ -34,13 +109,13 @@ starboard-app:
         memory: 1G
 
   kubeBench:
-    imageRef: quay.io/giantswarm/kube-bench:0.6.3
+    imageRef: docker.io/giantswarm/kube-bench:0.6.3
 
   polaris:
-    imageRef: quay.io/giantswarm/polaris:4.0
+    imageRef: docker.io/giantswarm/polaris:4.0
 
   conftest:
-    imageRef: giantswarm/conftest:v0.25.0
+    imageRef: docker.io/giantswarm/conftest:v0.25.0
 
   aqua:
     imageRef: giantswarm/scanner:5.3

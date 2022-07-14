@@ -29,7 +29,7 @@ update_subtree (){
 }
 
 
-git checkout remotes/origin/master
+git checkout remotes/origin/main
 git checkout -B $local_version
 
 git rm -r helm/starboard-app/charts/starboard-operator

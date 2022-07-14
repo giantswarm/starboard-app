@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Build with `app-build-suite` instead of `architect`.
+- Set more restrictive `securityContext`s to comply with `restricted` PSS standards.
+
+## [0.7.1] - 2022-04-22
+
+### Changed
+
+- Move crds subtree out of upstream chart.
+- Use crd-install pre-install job.
+- Move specs subtree out of upstream chart.
+- Use spec-install post-install job.
+
+## [0.7.0] - 2022-04-12
+
+### Changed
+
+- Update to upstream version 0.10.3 with `starboard-operator` version 0.15.3.
+- Add `specs` folder as a new subtree.
+
 ## [0.6.0] - 2022-03-23
 
 ### Changed
@@ -87,7 +108,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0] - 2021-09-08
 
-[Unreleased]: https://github.com/giantswarm/starboard-app/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/giantswarm/starboard-app/compare/v0.7.1...HEAD
+[0.7.1]: https://github.com/giantswarm/starboard-app/compare/v0.7.0...v0.7.1
+[0.7.0]: https://github.com/giantswarm/starboard-app/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/giantswarm/starboard-app/compare/v0.5.2...v0.6.0
 [0.5.2]: https://github.com/giantswarm/starboard-app/compare/v0.5.1...v0.5.2
 [0.5.1]: https://github.com/giantswarm/starboard-app/compare/v0.5.0...v0.5.1

@@ -1,16 +1,18 @@
 version: 2.1
 orbs:
-  architect: giantswarm/architect@4.14.3
+  architect: giantswarm/architect@4.21.0
 
 workflows:
   package-and-push-chart-on-tag:
     jobs:
+      # Build chart and push to catalogs.
       - architect/push-to-app-catalog:
           context: "architect"
           name: push-starboard-app-to-control-plane-catalog
           app_catalog: "control-plane-catalog"
           app_catalog_test: "control-plane-test-catalog"
           chart: "starboard-app"
+          executor: "app-build-suite"
           # Trigger job on git tag.
           filters:
             tags:
@@ -22,11 +24,24 @@ workflows:
           app_catalog: "giantswarm-catalog"
           app_catalog_test: "giantswarm-test-catalog"
           chart: "starboard-app"
+          executor: "app-build-suite"
+          persist_chart_archive: true
           # Trigger job on git tag.
           filters:
             tags:
               only: /^v.*/
 
+      - architect/run-tests-with-ats:
+          name: execute chart tests
+          filters:
+            # Do not trigger the job on merge to master.
+            branches:
+              ignore:
+                - master
+          requires:
+            - push-starboard-app-to-giantswarm-catalog
+
+      # Push starboard to collections.
       - architect/push-to-app-collection:
           name: aws-app-collection
           context: "architect"

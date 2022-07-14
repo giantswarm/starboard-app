@@ -1,0 +1,38 @@
+{{- if .Values.crds.install }}
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: {{ include "starboard-operator.crdInstall" . }}
+  annotations:
+    # create hook dependencies in the right order
+    "helm.sh/hook-weight": "-6"
+    seccomp.security.alpha.kubernetes.io/allowedProfileNames: 'runtime/default'
+    {{- include "starboard-operator.CRDInstallAnnotations" . | nindent 4 }}
+  labels:
+    app.kubernetes.io/component: {{ include "starboard-operator.crdInstall" . | quote }}
+    {{- include "starboard-operator.selectorLabels" . | nindent 4 }}
+    role: {{ include "starboard-operator.CRDInstallSelector" . | quote }}
+spec:
+  privileged: false
+  runAsUser:
+    rule: MustRunAsNonRoot
+  seLinux:
+    rule: RunAsAny
+  supplementalGroups:
+    rule: 'MustRunAs'
+    ranges:
+      - min: 1
+        max: 65535
+  volumes:
+  - 'configMap'
+  - 'projected'
+  hostPID: false
+  hostIPC: false
+  hostNetwork: false
+  fsGroup:
+    rule: 'MustRunAs'
+    ranges:
+      - min: 1
+        max: 65535
+  readOnlyRootFilesystem: false
+{{- end }}
