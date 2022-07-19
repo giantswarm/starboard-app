@@ -1,0 +1,14 @@
+apiVersion: flowcontrol.apiserver.k8s.io/v1alpha1
+kind: PriorityLevelConfiguration
+metadata:
+  name: starboard
+spec:
+  type: Limited
+  limited:
+    assuredConcurrencyShares: 5
+    limitResponse:
+      queuing:
+        # Create the Job, get the logs, store the report, delete the job. 
+        # Up to 100 max because I suspect report storage is a large request and we don't want to fill the API server memory.
+        queueLengthLimit: {{ min (mul .Values.starboard-app.operator.scanJobsConcurrentLimit 4) 100 }}
+      type: Queue
