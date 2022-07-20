@@ -16,5 +16,5 @@ spec:
     subjects:
     - kind: ServiceAccount
       serviceAccount:
-        name: {{ include (index .Values "starboard-app" "serviceAccount" "name") . }}
+        name: {{ index .Values "starboard-app" "serviceAccount" "name" }}
         namespace: ""         
