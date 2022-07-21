@@ -9,6 +9,7 @@ spec:
     type: ByUser
   rules:
   - resourceRules:
+    clusterScope: true
     # - apiGroups: [""]
     #   namespaces: ["*"]
     #   resources: ["pods"]
