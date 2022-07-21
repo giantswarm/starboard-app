@@ -72,6 +72,12 @@
                         },
                         "vulnerabilityScannerScanOnlyCurrentRevisions": {
                             "type": "boolean"
+                        },
+                        "scanJobsConcurrentLimit": {
+                            "type": "integer"
+                        },
+                        "scanJobsRetryDelay": {
+                            "type": "string"
                         }
                     }
                 },
@@ -118,6 +124,14 @@
                                     "type": "string"
                                 }
                             }
+                        }
+                    }
+                },
+                "serviceAccount": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
                         }
                     }
                 },

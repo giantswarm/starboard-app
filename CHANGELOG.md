@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Build with `app-build-suite` instead of `architect`.
 - Set more restrictive `securityContext`s to comply with `restricted` PSS standards.
+- Apply a PriorityLevelConfig and FlowSchema for starboard's API requests.
 
 ## [0.7.1] - 2022-04-22
 

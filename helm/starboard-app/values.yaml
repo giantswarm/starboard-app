@@ -60,6 +60,10 @@ starboard-app:
     vulnerabilityScannerReportTTL: "168h"  # 7 days
     # Generate reports for only the currently-deployed version of a replicaset.
     vulnerabilityScannerScanOnlyCurrentRevisions: true
+    # scanJobsConcurrentLimit the maximum number of scan jobs create by the operator
+    scanJobsConcurrentLimit: 10
+    # scanJobsRetryDelay the duration to wait before retrying a failed scan job
+    scanJobsRetryDelay: 30s
 
   image:
     repository: "docker.io/giantswarm/starboard-operator"
@@ -90,6 +94,10 @@ starboard-app:
     runAsGroup: 10000  # UID of `starboard` user from upstream
     seccompProfile:
       type: RuntimeDefault
+
+  serviceAccount:
+    # We set the service account name so that we can use it in our FlowSchema.
+    name: "starboard-app"
 
   trivy:
     # Ideally, we use the in-cluster Trivy deployed from https://github.com/giantswarm/trivy-app
