@@ -17,5 +17,5 @@ spec:
     - kind: ServiceAccount
       serviceAccount:
         name: {{ index .Values "starboard-app" "serviceAccount" "name" }}
-        namespace: "*"
+        namespace: {{ .Release.namespace }}
         clusterScope: true
