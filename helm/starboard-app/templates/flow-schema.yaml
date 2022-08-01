@@ -162,4 +162,3 @@ spec:
       serviceAccount:
         name: {{ index .Values "starboard-app" "serviceAccount" "name" }}
         namespace: {{ .Release.Namespace }}
-        clusterScope: true
