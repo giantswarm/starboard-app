@@ -11,6 +11,5 @@ spec:
         # We estimate 4 calls per Job: create the Job, get the logs, store the report, delete the job.
         # Allow 4 x the configured number of concurrent jobs, up to 100 max because
         # we suspect report storage is a large request and we don't want to fill the API server memory.
-        # queueLengthLimit: {{ min (mul (index .Values "starboard-app" "operator" "scanJobsConcurrentLimit") 4) 100 }}
-        queueLengthLimit: 5
+        queueLengthLimit: {{ min (mul (index .Values "starboard-app" "operator" "scanJobsConcurrentLimit") 4) 100 }}
       type: Queue
