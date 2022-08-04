@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Added `seccomp` to the `PodSecurityPolicy` when `CISKubeBenchReports` are disabled.
+
 ## [0.8.0] - 2022-08-01
 
 ### Changed

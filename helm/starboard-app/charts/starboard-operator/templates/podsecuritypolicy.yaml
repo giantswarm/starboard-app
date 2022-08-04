@@ -44,6 +44,8 @@ metadata:
   name: {{ include "starboard-operator.fullname" . }}
   labels:
     {{- include "starboard-operator.labels" . | nindent 4 }}
+  annotations:
+    seccomp.security.alpha.kubernetes.io/allowedProfileNames: 'runtime/default'
 spec:
   privileged: false
   allowPrivilegeEscalation: false
