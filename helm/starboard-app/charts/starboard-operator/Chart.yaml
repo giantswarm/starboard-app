@@ -28,7 +28,3 @@ sources:
 #   - name: The maintainers name (required for each maintainer)
 #     email: The maintainers email (optional for each maintainer)
 #     url: A URL for the maintainer (optional for each maintainer)
-icon: https://s.giantswarm.io/app-icons/starboard/2/icon_dark.svg
-annotations:
-  ui.giantswarm.io/logo: https://s.giantswarm.io/app-icons/starboard/2/logo_dark.png
-
