@@ -3,10 +3,11 @@ appVersion: 0.15.3
 annotations:
   application.giantswarm.io/team: "honeybadger"
   config.giantswarm.io/version: 1.x.x
+  ui.giantswarm.io/logo: https://s.giantswarm.io/app-icons/starboard/2/logo_dark.png
 description: A Helm chart for aqua starboard
 engine: gotpl
 home: https://github.com/giantswarm/starboard-app
-icon: https://s.giantswarm.io/app-icons/starboard/1/dark.png
+icon: https://s.giantswarm.io/app-icons/starboard/2/icon_dark.svg
 maintainers:
 - name: Giant Swarm applications team
   url: https://github.com/giantswarm/starboard-app
