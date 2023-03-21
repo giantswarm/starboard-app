@@ -2,6 +2,8 @@
 
 # Starboard App
 
+## Following the [discontinuation of Starboard](https://github.com/aquasecurity/starboard/discussions/1173), this App has been deprecated in favor of [Trivy Operator](https://github.com/giantswarm/trivy-operator-app). Please update any active installations of `starboard-app` to the newer `trivy-operator-app`.
+
 Giant Swarm offers an app for Aqua Security's [Starboard][starboard], which can be installed in workload clusters. It is part of our [managed security solution][managed-security], but can also be installed independently.
 
 Starboard is an in-cluster component which runs vulnerability scans of running workloads using [Trivy][trivy-aqua], Kubernetes CIS benchmark reports using [kube-bench][kube-bench], and configuration audits using [Polaris][polaris]. The results of these scans are saved in the cluster in the form of Kubernetes custom resources named `VulnerabilityReport`, `CISKubeBenchReport`, and `ConfigAuditReport`, respectively. It can also be configured to run more intrusive vulnerability scans using [kube-hunter][kube-hunter].
