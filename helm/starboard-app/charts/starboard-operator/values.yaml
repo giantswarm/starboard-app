@@ -465,3 +465,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+ciliumNetworkPolicy:
+  enabled: false

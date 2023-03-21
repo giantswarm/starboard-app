@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `Cilium Network Policy` to starboard.
+
 ### Changed
 
 - Added `seccomp` to the `PodSecurityPolicy` when `CISKubeBenchReports` are disabled.

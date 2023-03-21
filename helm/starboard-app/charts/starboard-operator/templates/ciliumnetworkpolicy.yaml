@@ -1,0 +1,18 @@
+{{ if .Values.ciliumNetworkPolicy.enabled }}
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ include "starboard-operator.fullname" . }}
+  labels:
+    {{- include "starboard-operator.labels" . | nindent 4 }}
+spec:
+  endpointSelector:
+    matchLabels:
+      {{- include "starboard-operator.selectorLabels" . | nindent 6 }}
+  egress:
+    # To scrape the vault token expiration
+    - toEntities:
+        - kube-apiserver
+        - cluster
+{{ end }}
