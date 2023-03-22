@@ -5,8 +5,43 @@
         "crds": {
             "type": "object",
             "properties": {
+                "image": {
+                    "type": "object",
+                    "properties": {
+                        "tag": {
+                            "type": "string"
+                        }
+                    }
+                },
                 "install": {
                     "type": "boolean"
+                },
+                "resources": {
+                    "type": "object",
+                    "properties": {
+                        "limits": {
+                            "type": "object",
+                            "properties": {
+                                "cpu": {
+                                    "type": "string"
+                                },
+                                "memory": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "requests": {
+                            "type": "object",
+                            "properties": {
+                                "cpu": {
+                                    "type": "string"
+                                },
+                                "memory": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
                 }
             }
         },
@@ -21,11 +56,110 @@
         "managedBy": {
             "type": "string"
         },
+        "podSecurityContext": {
+            "type": "object",
+            "properties": {
+                "runAsGroup": {
+                    "type": "integer"
+                },
+                "runAsNonRoot": {
+                    "type": "boolean"
+                },
+                "runAsUser": {
+                    "type": "integer"
+                },
+                "seccompProfile": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "securityContext": {
+            "type": "object",
+            "properties": {
+                "allowPrivilegeEscalation": {
+                    "type": "boolean"
+                },
+                "capabilities": {
+                    "type": "object",
+                    "properties": {
+                        "drop": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "privileged": {
+                    "type": "boolean"
+                },
+                "readOnlyRootFilesystem": {
+                    "type": "boolean"
+                },
+                "runAsGroup": {
+                    "type": "integer"
+                },
+                "runAsNonRoot": {
+                    "type": "boolean"
+                },
+                "runAsUser": {
+                    "type": "integer"
+                },
+                "seccompProfile": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "specs": {
             "type": "object",
             "properties": {
+                "image": {
+                    "type": "object",
+                    "properties": {
+                        "tag": {
+                            "type": "string"
+                        }
+                    }
+                },
                 "install": {
                     "type": "boolean"
+                },
+                "resources": {
+                    "type": "object",
+                    "properties": {
+                        "limits": {
+                            "type": "object",
+                            "properties": {
+                                "cpu": {
+                                    "type": "string"
+                                },
+                                "memory": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "requests": {
+                            "type": "object",
+                            "properties": {
+                                "cpu": {
+                                    "type": "string"
+                                },
+                                "memory": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
                 }
             }
         },
@@ -67,27 +201,34 @@
                 "operator": {
                     "type": "object",
                     "properties": {
-                        "vulnerabilityScannerReportTTL": {
-                            "type": "string"
-                        },
-                        "vulnerabilityScannerScanOnlyCurrentRevisions": {
-                            "type": "boolean"
-                        },
                         "scanJobsConcurrentLimit": {
                             "type": "integer"
                         },
                         "scanJobsRetryDelay": {
                             "type": "string"
+                        },
+                        "vulnerabilityScannerReportTTL": {
+                            "type": "string"
+                        },
+                        "vulnerabilityScannerScanOnlyCurrentRevisions": {
+                            "type": "boolean"
                         }
                     }
                 },
                 "podSecurityContext": {
                     "type": "object",
                     "properties": {
+                        "runAsGroup": {
+                            "type": "integer"
+                        },
                         "runAsNonRoot": {
                             "type": "boolean"
                         },
+                        "runAsUser": {
+                            "type": "integer"
+                        },
                         "seccompProfile": {
+                            "type": "object",
                             "properties": {
                                 "type": {
                                     "type": "string"
@@ -115,10 +256,37 @@
                 "securityContext": {
                     "type": "object",
                     "properties": {
+                        "allowPrivilegeEscalation": {
+                            "type": "boolean"
+                        },
+                        "capabilities": {
+                            "type": "object",
+                            "properties": {
+                                "drop": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "privileged": {
+                            "type": "boolean"
+                        },
+                        "readOnlyRootFilesystem": {
+                            "type": "boolean"
+                        },
+                        "runAsGroup": {
+                            "type": "integer"
+                        },
                         "runAsNonRoot": {
                             "type": "boolean"
                         },
+                        "runAsUser": {
+                            "type": "integer"
+                        },
                         "seccompProfile": {
+                            "type": "object",
                             "properties": {
                                 "type": {
                                     "type": "string"
